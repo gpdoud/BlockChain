@@ -15,16 +15,6 @@ namespace BlockChain {
 		public string Hash { get; set; }
 		public int Nonce { get; set; }
 
-		public static string CalcSHA245Hash(string message) {
-			SHA256 sham256 = SHA256Managed.Create();
-			byte[] bytes = Encoding.UTF8.GetBytes(message);
-			byte[] hbytes = sham256.ComputeHash(bytes);
-			StringBuilder sb = new StringBuilder();
-			foreach (var b in hbytes) {
-				sb.Append(b.ToString("X2"));
-			}
-			return sb.ToString();
-		}
 		public override string ToString() {
 			StringBuilder sb = new StringBuilder();
 			sb.Append(string.Format("PHash: {0}\n", PrevHash));

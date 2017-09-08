@@ -5,9 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BlockChain {
+
 	class BlockChain {
+
 		public static List<Block> Blocks;
 
+		public void ValidateBlockChain() {
+			foreach(var block in Blocks) {
+				if(!BlockChainLibrary.Crypto.Sha256.CalcHash(block.ToHashString()).Equals(block.Hash)) {
+					Console.WriteLine($"Block {block.Index} is corrupt.");
+				}
+			}
+		}
 		public void PrintBlockChain() {
 			foreach(var block in Blocks) {
 				Console.WriteLine(block.ToString());
@@ -21,15 +30,12 @@ namespace BlockChain {
 			}
 			do {
 				block.Nonce++;
-				block.Hash = Block.CalcSHA245Hash(block.ToHashString());
-			} while (!IsValidHash(block.Hash));
+				block.Hash = BlockChainLibrary.Crypto.Sha256.CalcHash(block.ToHashString());
+			} while (!BlockChainLibrary.Crypto.Sha256.IsValidHash(block.Hash));
 			Blocks.Add(block);
 		}
-		private bool IsValidHash(string Hash, int Difficulty = 4) {
-			var hashPrefix = "0000000000".Substring(0, Difficulty);
-			return Hash.StartsWith(hashPrefix);
-		}
-		public static Block GetLastBlock() {
+
+		private Block GetLastBlock() {
 			if (Blocks.Count == 0) {
 				return null;
 			} else {

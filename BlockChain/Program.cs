@@ -16,6 +16,7 @@ namespace BlockChain {
 			bc.CreateBlock("Received $200 from X");
 			bc.CreateBlock("Paid $100 to Y");
 			bc.PrintBlockChain();
+			bc.ValidateBlockChain();
 
 			Console.Write("Press any key ...");
 			Console.ReadKey();
