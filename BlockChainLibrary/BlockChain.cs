@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlockChain {
+namespace BlockChainLibrary {
 
-	class BlockChain {
+	public class BlockChain {
 
 		public static List<Block> Blocks;
 
@@ -22,8 +22,8 @@ namespace BlockChain {
 				Console.WriteLine(block.ToString());
 			}
 		}
-		public void CreateBlock(string message) {
-			Block block = new Block(message);
+		public void CreateBlock(IBlockChainData data) {
+			Block block = new Block(data.ToTextData());
 			if (GetLastBlock() != null) {
 				block.PrevHash = GetLastBlock().Hash;
 				block.Index = GetLastBlock().Index + 1;
@@ -44,7 +44,7 @@ namespace BlockChain {
 		}
 		public BlockChain() {
 			Blocks = new List<Block>();
-			CreateBlock("Genesis");
+			CreateBlock(new GenesisBlock());
 		}
 	}
 }

@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Block.cs" />
+    <Compile Include="BlockChain.cs" />
+    <Compile Include="GenesisBlock.cs" />
+    <Compile Include="IBlockChainData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sha256.cs" />
   </ItemGroup>

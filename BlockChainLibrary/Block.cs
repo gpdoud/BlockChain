@@ -5,8 +5,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlockChain {
-	class Block {
+namespace BlockChainLibrary {
+
+	public class Block {
 
 		public string PrevHash { get; set; }
 		public int Index { get; set; }
@@ -26,11 +27,11 @@ namespace BlockChain {
 			sb.Append("+----------------------------------------------------------------------+");
 			return sb.ToString();
 		}
-		public Block(string message) {
+		public Block(object data) {
 			this.PrevHash = "0";
 			this.Index = 0;
 			this.Timestamp = DateTime.Now;
-			this.Data = message;
+			this.Data = data.ToString();
 			this.Hash = "0";
 			this.Nonce = 0;
 		}

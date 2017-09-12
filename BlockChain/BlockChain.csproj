@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{46C5CB91-00F5-4A82-AB86-29EA7972D87A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>BlockChain</RootNamespace>
+    <RootNamespace>BlockChainProgram</RootNamespace>
     <AssemblyName>BlockChain</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -42,8 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Block.cs" />
-    <Compile Include="BlockChain.cs" />
+    <Compile Include="AccountRegisterData.cs" />
+    <Compile Include="BlockData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
