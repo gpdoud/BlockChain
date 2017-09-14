@@ -14,13 +14,13 @@ namespace BlockChainProgram {
 		public int NewBalance { get; set; }
 
 		public string ToTextData() {
-			return $"Bal:{PrevBalance};Chg:{Change};Bal:{NewBalance}";
+			return $"PrevBal:{PrevBalance};Chg:{Change};NewBal:{NewBalance}";
 		}
 
 		public AccountRegisterData(int prevBalance, int change, int newBalance) {
 			PrevBalance = prevBalance;
 			Change = change;
-			NewBalance = NewBalance;
+			NewBalance = newBalance;
 		}
 	}
 }

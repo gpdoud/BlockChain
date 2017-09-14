@@ -11,11 +11,13 @@ namespace BlockChainLibrary {
 		public static List<Block> Blocks;
 
 		public void ValidateBlockChain() {
+			string message = null;
 			foreach(var block in Blocks) {
 				if(!BlockChainLibrary.Crypto.Sha256.CalcHash(block.ToHashString()).Equals(block.Hash)) {
-					Console.WriteLine($"Block {block.Index} is corrupt.");
+					message = $"Block index {block.Index} is corrupt.";
 				}
 			}
+			Console.WriteLine(message ?? "Block chain validated.");
 		}
 		public void PrintBlockChain() {
 			foreach(var block in Blocks) {
