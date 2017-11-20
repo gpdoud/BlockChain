@@ -50,6 +50,8 @@
     <Compile Include="PPK.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sha256.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="TransactionDetail.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
