@@ -9,8 +9,13 @@ namespace BlockChainLibrary {
 	public class BlockChain : IDisposable {
 
 		public static List<Block> Blocks;
-		private static string SerializedBlocksFileName = "blocks.bin";
+		private static string SerializedBlocksFileName = "blockchain.bin";
 
+		public static void GetBlocksContainingAddress(string Address) {
+			foreach(var block in  Blocks) {
+
+			}
+		}
 		public void Serialize() {
 			var BlocksSerialized = Newtonsoft.Json.JsonConvert.SerializeObject(Blocks);
 			var path = System.IO.Directory.GetCurrentDirectory();
@@ -41,8 +46,8 @@ namespace BlockChainLibrary {
 				Console.WriteLine(block.ToString());
 			}
 		}
-		public void CreateBlock(IBlockChainData data) {
-			Block block = new Block(data.ToTextData());
+		public void CreateBlock(Transactions data) {
+			Block block = new Block(data);
 			if (GetLastBlock() != null) {
 				block.PrevHash = GetLastBlock().Hash;
 				block.Index = GetLastBlock().Index + 1;
@@ -55,7 +60,7 @@ namespace BlockChainLibrary {
 		}
 		private void InitializeBlocks() {
 			Blocks = new List<Block>();
-			CreateBlock(new GenesisBlock());
+			CreateBlock(GenesisBlock.GetGenesisBlockData());
 		}
 		private Block GetLastBlock() {
 			if (Blocks.Count == 0) {

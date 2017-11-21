@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlockChainProgram {
 
-	public class AccountRegisterData : IBlockChainData {
+	public class AccountRegisterData {
 
 		public int PrevBalance { get; set; }
 		public int Change { get; set; }

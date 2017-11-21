@@ -8,26 +8,34 @@ using BlockChainLibrary;
 
 namespace BlockChainProgram {
 	class Program {
-		static void Main(string[] args) {
+		void run() { 
 
 			Console.WriteLine($"Start {DateTime.Now}");
 			BlockChain reg = new BlockChain();
-			reg.CreateBlock(new AccountRegisterData(0, 1000, 1000));
-			reg.CreateBlock(new AccountRegisterData(1000, -100, 900));
-			reg.CreateBlock(new AccountRegisterData(900, 500, 1400));
-			Console.WriteLine($"End {DateTime.Now}");
-			//reg.PrintBlockChain();
-			//reg.ValidateBlockChain();
+			// create the transaction
+			Transaction t0 = new Transaction();
+			t0.Ver = "1.0";
+			t0.TxIdIn = "-1";
+			// create simple transaction detail
+			t0.AddInputTransaction("Joe", 1.0005m);
+			t0.AddOutputTransaction("Alice", 1.0m);
+			// Alice pays 0.0150 to Bob
+			Transaction t1 = new Transaction();
+			t1.AddSimpleTransaction("Alice", "Bob", 0.015m, 0.0005m);
+			Transaction t2 = new Transaction();
+			t2.AddSimpleTransaction("Bob", "Gopesh", 0.01m, 0.0005m);
+			Transactions txs = new Transactions();
+			txs.AddRange(new Transaction[] { t0, t1, t2 });
+			reg.CreateBlock(txs);
+			reg.PrintBlockChain();
 			reg.Serialize();
 			reg.Dispose();
 
-			BlockChain bc = new BlockChain();
-			bc.CreateBlock(new AccountRegisterData(1400, -200, 1200));
-			bc.PrintBlockChain();
-			bc.Dispose();
-
 			Console.Write("Press any key ...");
 			Console.ReadKey();
+		}
+		static void Main(string[] args) {
+			new Program().run();
 		}
 	}
 }

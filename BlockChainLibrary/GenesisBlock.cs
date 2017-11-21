@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace BlockChainLibrary {
 
-	public class GenesisBlock : IBlockChainData {
+	public class GenesisBlock{
 
 		public const string Genesis = "Genesis: Initial block on the chain.";
 
-		public string ToTextData() {
-			return $"{Genesis}";
+		public static Transactions GetGenesisBlockData() {
+			Transactions txs = new Transactions();
+			Transaction txout = new Transaction();
+			txout.AddOutputTransaction("Greg", 100.0m);
+			txs.Add(txout);
+			return txs;
 		}
+
 	}
 }

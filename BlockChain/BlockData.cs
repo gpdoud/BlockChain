@@ -7,7 +7,7 @@ using BlockChainLibrary;
 
 namespace BlockChainProgram {
 
-	public class BlockData : IBlockChainData {
+	public class BlockData {
 
 		public string message { get; set; }
 
