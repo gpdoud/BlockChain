@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Block.cs" />
     <Compile Include="BlockChain.cs" />
+    <Compile Include="Blocks.cs" />
     <Compile Include="GenesisBlock.cs" />
     <Compile Include="PPK.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
