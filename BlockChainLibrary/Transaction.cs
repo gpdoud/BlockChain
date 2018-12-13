@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BlockChainLibrary {
-	class Transaction {
+	public class Transaction {
 
 		public string TxId { get; set; } // transaction id
 		public string Version { get; set; } // transaction version number

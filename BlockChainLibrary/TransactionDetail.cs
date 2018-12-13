@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BlockChainLibrary {
-	class TransactionDetail {
+	public class TransactionDetail {
 		public string Address { get; set; }
 		public int Index { get; set; }
 		public double Amount { get; set; }
